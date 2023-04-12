@@ -62,6 +62,6 @@ mongoose.connect(process.env.MONGOOSE_URL, {
 	useUnifiedTopology: true,
 }).then(() => {
 	app.listen(PORT, () => console.log(`Server started and listening on Port: ${PORT}`))
-	User.insertMany(users)
-	Post.insertMany(posts)
+	// User.insertMany(users)
+	// Post.insertMany(posts)
 }).catch((error) => console.log(`${error} did not connect`))
