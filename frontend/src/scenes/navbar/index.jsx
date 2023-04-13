@@ -16,7 +16,7 @@ const Navbar = () => {
 
 	const theme = useTheme()
 	const neutralLight = theme.palette.neutral.light
-	const dark = theme.palette.neutral.dark
+	// const dark = theme.palette.neutral.dark
 	const background = theme.palette.background.default
 	const primaryLight = theme.palette.primary.light
 	const alt = theme.palette.background.alt
@@ -41,10 +41,11 @@ const Navbar = () => {
 					SocialMedia
 				</Typography>
 				{isNonMobileScreens && (
-					<FlexBetween backgroundColor={neutralLight} borderRadius="10px" gap="3rem" padding="0.1rem 1.5rem">
-						<InputBase placeholder="Search..." />
+					<FlexBetween backgroundColor={neutralLight} borderRadius="10px" gap="1rem" padding="0.1rem 1.5rem">
+						<InputBase placeholder="Search..." sx={{ width: '125px' }} />
 						<IconButton><Search /></IconButton>
 					</FlexBetween>
+
 				)}
 			</FlexBetween>
 
