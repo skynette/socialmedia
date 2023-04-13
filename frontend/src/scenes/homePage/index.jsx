@@ -1,9 +1,15 @@
+import { Box } from '@mui/material'
 import React from 'react'
+import Navbar from 'scenes/navbar'
 
-const index = () => {
+
+const HomePage = () => {
   return (
-	<div>index</div>
+	<Box>
+		Navbar Goes here
+		<Navbar/>
+	</Box>
   )
 }
 
-export default index
+export default HomePage
