@@ -11,14 +11,14 @@ const Navbar = () => {
 	const [isMobileMenuToggled, setIsMobileMenuToggled] = useState(false)
 	const dispatch = useDispatch()
 	const navigate = useNavigate()
-	const user = useSelector((store) => store.user)
+	const user = useSelector((store) => store.user) || {}
 	const isNonMobileScreens = useMediaQuery(useTheme().breakpoints.up("md"))
 
 	const theme = useTheme()
 	const neutralLight = theme.palette.neutral.light
 	const dark = theme.palette.neutral.dark
 	const background = theme.palette.background.default
-	const primary = theme.palette.primary.light
+	const primaryLight = theme.palette.primary.light
 	const alt = theme.palette.background.alt
 
 	const fullName = `${user.firstName} ${user.lastName}`
@@ -33,7 +33,7 @@ const Navbar = () => {
 					onClick={() => navigate("/home")}
 					sx={{
 						"&:hover": {
-							color: neutralLight,
+							color: primaryLight,
 							cursor: "pointer",
 						}
 					}}

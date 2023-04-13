@@ -6,7 +6,6 @@ import Navbar from 'scenes/navbar'
 const HomePage = () => {
   return (
 	<Box>
-		Navbar Goes here
 		<Navbar/>
 	</Box>
   )
