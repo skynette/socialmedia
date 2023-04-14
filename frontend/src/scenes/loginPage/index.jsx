@@ -26,7 +26,7 @@ const LoginPage = () => {
 					SocialMedia
 				</Typography>
 			</Box>
-			<Box width={isNonMobileScreens ? "50px" : "93%"}
+			<Box width={isNonMobileScreens ? "50%" : "93%"}
 			p="2rem"
 			m="2rem auto"
 			borderRadius="1.5rem"
