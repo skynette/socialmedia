@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux'
 import Navbar from 'scenes/navbar'
 import MyPostWidget from 'scenes/widgets/MyPostWidget'
 import PostsWidget from 'scenes/widgets/PostsWidget'
+import AdvertWidget from 'scenes/widgets/AdvertWidget'
 
 
 const HomePage = () => {
@@ -31,7 +32,8 @@ const HomePage = () => {
 				</Box>
 				{isNonMobileScreens && (
 					<Box flexBasis="26%">
-
+						<AdvertWidget />
+						<Box m="2rem 0"/>
 					</Box>
 				)}
 
