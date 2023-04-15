@@ -17,16 +17,15 @@ const MyPostWidget = ({ picturePath }) => {
 	const { palette } = useTheme()
 	const { _id } = useSelector((state) => state.user)
 	const token = useSelector((state) => state.token)
-	const isNonMobile = useMediaQuery("(min-width: 100px)")
+	const isNonMobileScreens = useMediaQuery("(min-width: 100px)")
 	const mediumMain = palette.neutral.mediumMain
 	const medium = palette.neutral.medium
 
 	const handlePost = async () => {
-		const formData = new FormData()
-
+		const formData = new FormData();
 		formData.append("userId", _id)
 		formData.append("description", post)
-		if (isImage) {
+		if (image) {
 			formData.append("picture", image)
 			formData.append("picturePath", image.name)
 		}
@@ -38,8 +37,8 @@ const MyPostWidget = ({ picturePath }) => {
 			},
 			body: formData,
 		})
-		const post = await response.json()
-		dispatch(setPosts({ post }))
+		const posts = await response.json()
+		dispatch(setPosts({ posts }))
 		setImage(null)
 		setPost("")
 	}
@@ -50,7 +49,7 @@ const MyPostWidget = ({ picturePath }) => {
 			<FlexBetween gap="1.5rem">
 				<UserImage image={picturePath} />
 				<InputBase
-					placeholder="What's on your mind?"
+					placeholder="What's on your mind..."
 					onChange={(e) => setPost(e.target.value)}
 					value={post}
 					sx={{
@@ -63,8 +62,8 @@ const MyPostWidget = ({ picturePath }) => {
 			</FlexBetween>
 			{isImage && (
 				<Box
-					borderRadius="5px"
 					border={`1px solid ${medium}`}
+					borderRadius="5px"
 					mt="1rem"
 					p="1rem"
 				>
@@ -81,7 +80,6 @@ const MyPostWidget = ({ picturePath }) => {
 									p="1rem"
 									width="100%"
 									sx={{ "&:hover": { cursor: "pointer" } }}
-
 								>
 									<input {...getInputProps()} />
 									{!image ? (
@@ -95,50 +93,46 @@ const MyPostWidget = ({ picturePath }) => {
 								</Box>
 								{image && (
 									<IconButton
-										onCLick={() => { setImage(null); setIsImage(false) }}
-										sx={{
-											width: "15%",
-										}}
+										onClick={() => setImage(null)}
+										sx={{ width: "15%" }}
 									>
 										<DeleteOutlined />
 									</IconButton>
 								)}
 							</FlexBetween>
 						)}
-
 					</Dropzone>
 				</Box>
 			)}
-			<Divider sx={{ margin: "1rem 0" }} />
+
+			<Divider sx={{ margin: "1.25rem 0" }} />
 
 			<FlexBetween>
 				<FlexBetween gap="0.25rem" onClick={() => setIsImage(!isImage)}>
 					<ImageOutlined sx={{ color: mediumMain }} />
-					<Typography color={mediumMain} sx={{ "&:hover": { cursor: "pointer", color: medium } }} >Image
+					<Typography
+						color={mediumMain}
+						sx={{ "&:hover": { cursor: "pointer", color: medium } }}
+					>
+						Image
 					</Typography>
 				</FlexBetween>
 
-				{isNonMobile ? (
+				{isNonMobileScreens ? (
 					<>
 						<FlexBetween gap="0.25rem">
 							<GifBoxOutlined sx={{ color: mediumMain }} />
-							<Typography color={mediumMain}>
-								Clip
-							</Typography>
+							<Typography color={mediumMain}>Clip</Typography>
 						</FlexBetween>
 
 						<FlexBetween gap="0.25rem">
 							<AttachFileOutlined sx={{ color: mediumMain }} />
-							<Typography color={mediumMain}>
-								Attachment
-							</Typography>
+							<Typography color={mediumMain}>Attachment</Typography>
 						</FlexBetween>
 
 						<FlexBetween gap="0.25rem">
 							<MicOutlined sx={{ color: mediumMain }} />
-							<Typography color={mediumMain}>
-								Audio
-							</Typography>
+							<Typography color={mediumMain}>Audio</Typography>
 						</FlexBetween>
 					</>
 				) : (
@@ -159,8 +153,8 @@ const MyPostWidget = ({ picturePath }) => {
 					POST
 				</Button>
 			</FlexBetween>
-		</WidgetWrapper >
-	)
-}
+		</WidgetWrapper>
+	);
+};
 
 export default MyPostWidget
