@@ -11,6 +11,9 @@ const HomePage = () => {
 	const isNonMobileScreens = useMediaQuery("(min-width: 600px)")
 	const { _id, picturePath } = useSelector((store) => store.user)
 
+	const everything = useSelector((store) => store)
+	console.log(everything);
+
 	return (
 		<Box>
 			<Navbar />
@@ -27,6 +30,7 @@ const HomePage = () => {
 
 				<Box flexBasis={isNonMobileScreens ? "42%" : undefined} mt={isNonMobileScreens ? undefined : "2rem"}>
 					<MyPostWidget picturePath={picturePath}/>
+					<PostsWidget userId={_id}/>
 				</Box>
 				{isNonMobileScreens && (
 					<Box flexBasis="26%">
@@ -35,7 +39,7 @@ const HomePage = () => {
 				)}
 
 			</Box>
-			<PostsWidget />
+
 		</Box>
 	)
 }

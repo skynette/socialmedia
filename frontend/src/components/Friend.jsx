@@ -22,6 +22,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
 	const isFriend = friends.find((friend) => friend._id === friendId)
 
 	const patchFriend = async (friendId) => {
+		console.log("friend id", friendId);
 		const response = await fetch(`http://localhost:3001/users/${_id}/${friendId}`, {
 			method: "PATCH",
 			headers: {
@@ -57,18 +58,18 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
 					<Typography color={medium} fontSize="0.75rem">
 						{subtitle}
 					</Typography>
-					<IconButton onClick={() => patchFriend()}
-						sx={{ backgroundColor: primaryLight, p: "0.5rem" }}
-					>
-						{isFriend ? (
-							<PersonRemoveOutlined sx={{ color: primaryDark }} />
-						) : (
-							<PersonAddOutlined sx={{ color: primaryDark }} />
-						)}
-					</IconButton>
 				</Box>
+				<IconButton onClick={() => patchFriend(friendId)}
+					sx={{ backgroundColor: primaryLight, p: "0.5rem" }}
+				>
+					{isFriend ? (
+						<PersonRemoveOutlined sx={{ color: primaryDark }} />
+					) : (
+						<PersonAddOutlined sx={{ color: primaryDark }} />
+					)}
+				</IconButton>
 			</FlexBetween>
-		</FlexBetween>
+		</FlexBetween >
 	)
 }
 
