@@ -42,10 +42,10 @@ export const getFeedPosts = async (req, res) => {
 export const getUserPosts = async (req, res) => {
 	try {
 		const { userId } = req.params;
-		const post = await Post.find({ userId: userId });
+		const post = await Post.find({ userId });
 		res.status(200).json(post);
-	} catch (error) {
-		res.status(404).json({ error: error.message });
+	} catch (err) {
+		res.status(404).json({ message: err.message });
 	}
 }
 
@@ -69,7 +69,7 @@ export const likePost = async (req, res) => {
 		);
 
 		res.status(200).json(updatedPost);
-		
+
 	} catch (error) {
 		res.status(404).json({ error: error.message });
 	}

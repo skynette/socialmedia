@@ -3,7 +3,6 @@ import Friend from "components/Friend"
 import WidgetWrapper from "components/WidgetWrapper"
 import { useDispatch, useSelector } from "react-redux"
 import { setFriends } from "state/authSlice"
-import { useNavigate } from "react-router-dom"
 import { useEffect } from "react"
 
 const FriendListWidget = ({ userId }) => {
