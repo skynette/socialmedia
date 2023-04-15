@@ -11,9 +11,6 @@ const HomePage = () => {
 	const isNonMobileScreens = useMediaQuery("(min-width: 600px)")
 	const { _id, picturePath } = useSelector((store) => store.user)
 
-	const everything = useSelector((store) => store)
-	console.log(everything);
-
 	return (
 		<Box>
 			<Navbar />

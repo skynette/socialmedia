@@ -28,12 +28,12 @@ const PostWidget = ({
 
 	const { palette } = useTheme()
 	const main = palette.neutral.main
-	const primary = palette.primary.medium
+	const primary = palette.primary.main
 
 	// change the number of likes
 	const patchLike = async () => {
 		const response = await fetch(`http://localhost:3001/posts/${postId}/like`, {
-			method: "PATCH",
+			method: "PUT",
 			headers: {
 				Authorization: `Bearer ${token}`,
 				"Content-Type": "application/json",
