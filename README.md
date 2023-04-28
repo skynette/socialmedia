@@ -2,6 +2,9 @@
 
 SocialMedia is a social networking web application built with React, Material UI, Node.js, Express, and MongoDB. It allows users to create profiles, make posts, follow other users and like posts.
 
+![image](https://user-images.githubusercontent.com/29153968/235124858-cc967a19-b32f-4bb8-95f7-eaeced08a49b.png)
+
+
 ## Features
 
 -   User authentication and authorization with JSON Web Tokens (JWT)
