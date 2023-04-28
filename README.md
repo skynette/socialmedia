@@ -4,7 +4,7 @@ SocialMedia is a social networking web application built with React, Material UI
 
 ![image](https://user-images.githubusercontent.com/29153968/235124858-cc967a19-b32f-4bb8-95f7-eaeced08a49b.png)
 
-
+test logins: user: batman@gmail.com, pass: admin1234
 ## Features
 
 -   User authentication and authorization with JSON Web Tokens (JWT)
