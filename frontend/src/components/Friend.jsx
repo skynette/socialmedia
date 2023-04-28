@@ -23,7 +23,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
 
 	const patchFriend = async (friendId) => {
 		console.log("friend id", friendId);
-		const response = await fetch(`http://localhost:3001/users/${_id}/${friendId}`, {
+		const response = await fetch(`${process.env.REACT_APP_SERVER_BASE_URL}/users/${_id}/${friendId}`, {
 			method: "PATCH",
 			headers: {
 				"Content-Type": "application/json",

@@ -11,7 +11,7 @@ const PostsWidget = ({ userId, isProfile = false }) => {
 
 	// Fetch posts for all users
 	const getPosts = async () => {
-		const response = await fetch("http://localhost:3001/posts", {
+		const response = await fetch(`${process.env.REACT_APP_SERVER_BASE_URL}/posts`, {
 			method: "GET",
 			headers: {
 				"Content-Type": "application/json",
@@ -24,7 +24,7 @@ const PostsWidget = ({ userId, isProfile = false }) => {
 
 	// Fetch posts for a specific user
 	const getUserPosts = async () => {
-		const response = await fetch(`http://localhost:3001/posts/${userId}/posts`, {
+		const response = await fetch(`${process.env.REACT_APP_SERVER_BASE_URL}/posts/${userId}/posts`, {
 			method: "GET",
 			headers: {
 				"Content-Type": "application/json",

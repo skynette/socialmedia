@@ -16,7 +16,7 @@ const App = () => {
 	const mode = useSelector((store) => store.mode)
 	const theme = useMemo(() => createTheme(themeSettings(mode)), [mode])
 	const isAuth = Boolean(useSelector((store) => store.token))
-
+	console.log(process.env.REACT_APP_SERVER_BASE_URL)
 	return (
 		<PersistGate loading={null} persistor={persistStore(store)}>
 			<BrowserRouter>
